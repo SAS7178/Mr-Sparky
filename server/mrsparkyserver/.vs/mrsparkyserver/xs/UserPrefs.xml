@@ -1,0 +1,25 @@
+﻿<Properties StartupConfiguration="{C551AFE0-0E5F-4BB5-BC1C-33C7964ECCA9}|Default">
+  <MonoDevelop.Ide.ItemProperties.mrsparkyserver PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="mrsparkyserver/Properties/launchSettings.json">
+    <Files>
+      <File FileName="mrsparkyserver/Startup.cs" Line="43" Column="100" />
+      <File FileName="mrsparkyserver/Program.cs" Line="27" Column="1" />
+      <File FileName="mrsparkyserver/appsettings.json" Line="11" Column="1" />
+      <File FileName="mrsparkyserver/Properties/launchSettings.json" Line="22" Column="35" />
+      <File FileName="mrsparkyserver/WeatherForecast.cs" Line="16" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="mrsparkyserver" expanded="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

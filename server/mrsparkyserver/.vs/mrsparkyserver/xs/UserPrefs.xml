@@ -2,16 +2,20 @@
   <MonoDevelop.Ide.ItemProperties.mrsparkyserver PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workbench ActiveDocument="mrsparkyserver/Properties/launchSettings.json">
     <Files>
-      <File FileName="mrsparkyserver/Startup.cs" Line="43" Column="100" />
-      <File FileName="mrsparkyserver/Program.cs" Line="27" Column="1" />
-      <File FileName="mrsparkyserver/appsettings.json" Line="11" Column="1" />
-      <File FileName="mrsparkyserver/Properties/launchSettings.json" Line="22" Column="35" />
-      <File FileName="mrsparkyserver/WeatherForecast.cs" Line="16" Column="1" />
+      <File FileName="mrsparkyserver/Properties/launchSettings.json" Line="32" Column="1" />
+      <File FileName="mrsparkyserver/appsettings.Development.json" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="mrsparkyserver" expanded="True" />
+          <Node name="mrsparkyserver" expanded="True">
+            <Node name="mrsparkyserver" expanded="True">
+              <Node name="Properties" expanded="True">
+                <Node name="launchSettings.json" selected="True" />
+              </Node>
+              <Node name="appsettings.json" expanded="True" />
+            </Node>
+          </Node>
         </State>
       </Pad>
     </Pads>

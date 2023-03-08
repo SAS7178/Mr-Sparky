@@ -6,6 +6,12 @@
   height: 40vmin;
   pointer-events: none;
 }
+.header
+{
+  position: fixed;
+  display: flex;
+
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

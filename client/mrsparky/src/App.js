@@ -1,34 +1,45 @@
-// import logo from './logo.svg';
 import './App.css';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { isClickableInput } from '@testing-library/user-event/dist/utils';
 
 function App() {
 
+//initial scene camera and renderer func
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(95, window.innerWidth / window.innerHeight, 0.1, 1000);
+  const camera = new THREE.PerspectiveCamera(95, window.innerWidth / window.innerHeight, 0.5,1000);
   const renderer = new THREE.WebGL1Renderer({
     canvas: document.querySelector('#bg'),
   });
+  //create torus object
   const geometry = new THREE.TorusGeometry(10, 3, 26, 100)
   const material = new THREE.MeshStandardMaterial({ color: 0xDAA52 });
   const torus = new THREE.Mesh(geometry, material)
+
+//set camera position based on given window
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
-  camera.position.setZ(30);
+  camera.position.setZ(60);
   scene.add(torus)
 
+//var to hold texture image
   const SASTexture = new THREE.TextureLoader().load("SAS.jpg");
 
-  // box geometry
+  // SAS box geometry
   const SAS = new THREE.Mesh( 
   new THREE.BoxGeometry(6, 6, 6),
-  new THREE.MeshBasicMaterial({ map: SASTexture })
+  new THREE.MeshBasicMaterial({ map: SASTexture }),
+  
   );
   scene.add(SAS)
 
-  //moon
+  function spiralPosition(angle, distance, height) {
+    const x = distance * Math.sin(angle);
+    const y = height * (angle / (2 * Math.PI));
+    const z = distance * Math.cos(angle);
+    return [x, y, z];
+  }
+  
+  //var to hold moon texture image
   const moonTexture = new THREE.TextureLoader().load("moonimage.jpg");
 
   const moon = new THREE.Mesh(
@@ -37,14 +48,15 @@ function App() {
       map: moonTexture,
     })
   )
-  // moon.addEventListener( 'click',function(){moonScale()}, false)
+
   scene.add(moon)
+
   //light options
   const ambientLight = new THREE.AmbientLight(0xffffff);
   const pointLight = new THREE.PointLight(0xffffff)
   const lightHelper = new THREE.PointLightHelper(pointLight)
 
-  //create Orbit Control object
+  //create Orbit Control object for light angle control
   const controls = new OrbitControls(camera, renderer.domElement);
   pointLight.position.set(20, 20, 20)
 
@@ -92,24 +104,28 @@ function App() {
 
   //function to create random stars throughout scene space
   function addstar() {
-    const geometry = new THREE.SphereGeometry(0.25, 14, 14)
+    const geometry = new THREE.SphereGeometry(0.25, 14, 14);
     const material = new THREE.MeshStandardMaterial({ color: 0xDAA520 });
     const star = new THREE.Mesh(geometry, material);
-
-    const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(100));
+  
+    const angle = THREE.MathUtils.randFloat(0, 2 * Math.PI);
+    const distance = THREE.MathUtils.randFloat(30, 50);
+    const height = THREE.MathUtils.randFloat(-50, 50);
+    const [x, y, z] = spiralPosition(angle, distance, height);
+  
     star.position.set(x, y, z);
-    scene.add(star)
+    scene.add(star);
   }
+  
 
   Array(300).fill().forEach(addstar);
   const spaceTexture = new THREE.TextureLoader().load('pexels.jpg');
   scene.background = spaceTexture
   animate()
   return (
-    <div className="App">
-      <header className="App-header">
-      </header>
-    </div>
+   <canvas>
+    
+   </canvas>
   );
 }
 
